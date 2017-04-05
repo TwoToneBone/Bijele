@@ -18,13 +18,11 @@ namespace Bijele
                 int input = int.Parse(inputs[i]);
                 int difference = Math.Abs(input - chessPieces[i]);
 
-                if(input < chessPieces[i] && input != 0)
-                {
-                    difference = difference * -1; // ej klar
-                }
-
-                output += difference;
+                output = input > chessPieces[i] ? output += $"-{difference} " : output += $"{difference} ";                
             }
+
+            output.TrimEnd(' ');
+
             Console.WriteLine(output);
         }
     }
